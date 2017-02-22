@@ -1,0 +1,23 @@
+#config files
+.idea/*
+
+#cache files
+.cache/*
+
+#compiled files
+*.pyc
+
+#temp files
+*~
+
+#migrations
+*/migrations/*
+
+#static
+static_root/*
+
+#media
+media_root/*
+
+#nginx
+nginx/*
