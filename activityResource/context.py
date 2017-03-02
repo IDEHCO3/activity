@@ -1,4 +1,13 @@
 
+def addContextInHeader(url, response):
+    link = ' <'+url+'>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"'
+    if "Link" not in response:
+        response['Link'] = link
+    else:
+        response['Link'] += ", " + link
+    return response
+
+
 context = {
     "@context": {
         "iriActor": {

@@ -1,16 +1,22 @@
 
 from rest_framework import generics
 from rest_framework.response import Response
+from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 from activityResource.models import Activity
 from activityResource.serializers import ActivitySerializer
 
-from activityResource.context import context
+from activityResource.context import context, addContextInHeader
 # Create your views here.
 
 class ActivityList(generics.ListCreateAPIView):
     queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
+
+    def get(self, request, *args, **kwargs):
+        response = super(ActivityList, self).get(request, *args, **kwargs)
+        response = addContextInHeader(reverse('activity:context', request=request), response)
+        return response
 
     def options(self, request, *args, **kwargs):
         return Response(context, status=200)
@@ -18,6 +24,11 @@ class ActivityList(generics.ListCreateAPIView):
 class ActivityDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
+
+    def get(self, request, *args, **kwargs):
+        response = super(ActivityDetail, self).get(request, *args, **kwargs)
+        response = addContextInHeader(reverse('activity:context', request), response)
+        return response
 
     def options(self, request, *args, **kwargs):
         return Response(context, status=200)
