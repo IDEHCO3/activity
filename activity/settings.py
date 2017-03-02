@@ -24,7 +24,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static_root/")
 SECRET_KEY = 'g&rkdruqeu-1pn!gb9cx=9%)!y+ak0-vef#7-u)zouj#6o(8il'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -134,4 +134,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/activity/static/'
