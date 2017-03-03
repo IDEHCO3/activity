@@ -15,7 +15,8 @@ class ActivityList(generics.ListCreateAPIView):
 
     def get(self, request, *args, **kwargs):
         response = super(ActivityList, self).get(request, *args, **kwargs)
-        response = addContextInHeader(reverse('activity:context', request=request), response)
+        url = reverse('activity:context', request=request)
+        response = addContextInHeader(url, response)
         return response
 
     def options(self, request, *args, **kwargs):
@@ -27,7 +28,8 @@ class ActivityDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def get(self, request, *args, **kwargs):
         response = super(ActivityDetail, self).get(request, *args, **kwargs)
-        response = addContextInHeader(reverse('activity:context', request), response)
+        url = reverse('activity:context', request=request)
+        response = addContextInHeader(url, response)
         return response
 
     def options(self, request, *args, **kwargs):
