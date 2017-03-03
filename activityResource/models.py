@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Activity(models.Model):
 
+    iriActor = models.URLField(blank=False, null=False)
+    iriAction = models.URLField(blank=False, null=False)
     iriObject = models.URLField(blank=False, null=True)
     iriObjectTarget = models.URLField(blank=False, null=True)
-    iriAction = models.URLField(blank=False, null=False)
-    iriActor = models.URLField(blank=False, null=False)

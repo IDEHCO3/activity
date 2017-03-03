@@ -4,4 +4,4 @@ class ActivitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Activity
-        fields = ('id', 'iriObject', 'iriObjectTarget', 'iriAction', 'iriActor')
+        fields = ('id', 'iriActor', 'iriAction', 'iriObject', 'iriObjectTarget')
